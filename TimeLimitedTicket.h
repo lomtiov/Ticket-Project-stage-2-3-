@@ -5,13 +5,15 @@
 
 class TimeLimitedTicket : public Ticket {
 private:
-    int validityPeriod;  // Срок действия в секундах
+    int validityPeriod;
 
 public:
     TimeLimitedTicket(int ticketNumber, int saleTime, int validityPeriod);
 
-    // Проверка возможности прохода
     bool attemptPass(int currentTime) override;
+
+    // Реализация клонирования
+    TimeLimitedTicket* clone() const override;
 };
 
 #endif // TIMELIMITEDTICKET_H

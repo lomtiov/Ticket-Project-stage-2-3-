@@ -1,9 +1,13 @@
 #include "Ticket.h"
 
-Ticket::Ticket(int ticketNumber, int saleTime) 
-    : ticketNumber(ticketNumber), saleTime(saleTime) 
-{
-    if (ticketNumber <= 0) throw std::invalid_argument("Invalid ticket number");
+Ticket::Ticket(int ticketNumber, int saleTime)
+    : ticketNumber(ticketNumber), saleTime(saleTime) {
+    if (ticketNumber <= 0) {
+        throw std::invalid_argument("Invalid ticket number");
+    }
+    if (saleTime < 0) {
+        throw std::invalid_argument("Invalid sale time");
+    }
 }
 
 int Ticket::getTicketNumber() const {

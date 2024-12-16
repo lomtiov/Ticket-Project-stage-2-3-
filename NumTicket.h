@@ -5,7 +5,7 @@
 
 class NumTicket : public Ticket {
 private:
-    int remainingTrips;  // Оставшиеся поездки
+    int remainingTrips;
 
 public:
     NumTicket(int ticketNumber, int saleTime, int remainingTrips);
@@ -13,6 +13,9 @@ public:
     int getRemainingTrips() const;
 
     bool attemptPass(int currentTime) override;
+
+    // Реализация клонирования
+    NumTicket* clone() const override;
 };
 
 #endif // NUMTICKET_H

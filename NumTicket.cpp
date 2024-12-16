@@ -1,8 +1,7 @@
 #include "NumTicket.h"
 
-NumTicket::NumTicket(int ticketNumber, int saleTime, int remainingTrips) 
-    : Ticket(ticketNumber, saleTime), remainingTrips(remainingTrips) 
-{
+NumTicket::NumTicket(int ticketNumber, int saleTime, int remainingTrips)
+    : Ticket(ticketNumber, saleTime), remainingTrips(remainingTrips) {
     if (remainingTrips < 0) throw std::invalid_argument("Invalid remaining trips");
 }
 
@@ -14,4 +13,8 @@ bool NumTicket::attemptPass(int currentTime) {
     if (remainingTrips <= 0) return false;
     remainingTrips--;
     return true;
+}
+
+NumTicket* NumTicket::clone() const {
+    return new NumTicket(*this);
 }

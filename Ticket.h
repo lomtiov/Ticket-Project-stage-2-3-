@@ -6,20 +6,21 @@
 
 class Ticket {
 protected:
-    int ticketNumber;      // Уникальный номер билета
-    int saleTime;          // Время продажи (в секундах)
+    int ticketNumber;
+    int saleTime;
 
 public:
     Ticket(int ticketNumber, int saleTime);
-    virtual ~Ticket() = default;  // Виртуальный деструктор для полиморфизма
+    virtual ~Ticket() = default;
 
     int getTicketNumber() const;
     int getSaleTime() const;
 
-    // Чисто виртуальная функция для проверки возможности прохода
     virtual bool attemptPass(int currentTime) = 0;
 
-    // Виртуальные операторы сравнения
+    // Клонирование
+    virtual Ticket* clone() const = 0;
+
     virtual bool operator==(const Ticket& other) const;
     virtual bool operator<(const Ticket& other) const;
 };

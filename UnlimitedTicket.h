@@ -5,13 +5,16 @@
 
 class UnlimitedTicket : public Ticket {
 private:
-    std::string reason;     // Основание для выдачи
-    int lastPassTime;       // Время последнего прохода (инициализация: -1)
+    std::string reason;
+    int lastPassTime;
 
 public:
     UnlimitedTicket(int ticketNumber, int saleTime, const std::string& reason);
 
     bool attemptPass(int currentTime) override;
+
+    // Реализация клонирования
+    UnlimitedTicket* clone() const override;
 };
 
 #endif // UNLIMITEDTICKET_H

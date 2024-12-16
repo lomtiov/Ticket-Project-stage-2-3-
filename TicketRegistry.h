@@ -8,10 +8,17 @@
 
 class TicketRegistry {
 private:
-    std::map<int, std::unique_ptr<Ticket>> tickets;  // Хранилище билетов
+    std::map<int, std::unique_ptr<Ticket>> tickets;
 
 public:
+    // Конструктор по умолчанию
     TicketRegistry() = default;
+
+    // Копирующий конструктор
+    TicketRegistry(const TicketRegistry& other);
+
+    // Оператор присваивания
+    TicketRegistry& operator=(const TicketRegistry& other);
 
     // Добавление билета
     void addTicket(std::unique_ptr<Ticket> ticket);
