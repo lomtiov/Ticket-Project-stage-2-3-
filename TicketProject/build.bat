@@ -1,0 +1,1 @@
+g++ -shared -o TicketLibrary.dll TicketLibrary.cpp NumTicket.cpp -Wl,--out-implib,libTicketLibrary.a
